@@ -122,6 +122,10 @@ public class StockMarketDataImpl implements StockMarketData {
 				throw faultResp;
 			}
 
+			// Write the first header line
+			tempFileWriter
+					.write("#RIC,Date[G],Time[G],GMT Offset,Type,Price,Volume,Bid Price,Bid Size,Ask Price,Ask Size\n");
+
 			// Read content from the data source
 			while ((sourceLine = sourceInputStream.readLine()) != null) {
 
@@ -380,6 +384,10 @@ public class StockMarketDataImpl implements StockMarketData {
 
 			tempFileName = temp.getName();
 			tempFileName = tempFileName.substring(0, tempFileName.length() - 14);
+
+			// write the header
+			tempFileWriter
+					.write("#RIC,Date[G],Time[G],GMT Offset,Type,Price,Volume,Bid Price,Bid Size,Ask Price,Ask Size\n");
 
 			while ((sCurrentLine = buffer.readLine()) != null) {
 				// Split the line to components
