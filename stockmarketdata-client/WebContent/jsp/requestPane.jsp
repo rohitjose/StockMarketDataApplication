@@ -2,8 +2,8 @@
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<a class="panel-title" data-toggle="collapse"
-				data-parent="#panel-343417" href="#panel-element-597965">Import
-				Market Data</a>
+				data-parent="#panel-343417" href="#panel-element-597965">Get
+				Filtered Market Data Event Set</a>
 		</div>
 		<div id="panel-element-597965" class="panel-collapse collapse in">
 			<div class="panel-body">
@@ -14,8 +14,8 @@
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<a class="panel-title collapsed" data-toggle="collapse"
-				data-parent="#panel-343417" href="#panel-element-481780">Convert
-				Market Data</a>
+				data-parent="#panel-343417" href="#panel-element-481780">Get
+				Converted Market Data Event Set</a>
 		</div>
 		<div id="panel-element-481780" class="panel-collapse collapse">
 			<div class="panel-body"><%@ include
@@ -26,21 +26,20 @@
 		<div class="panel-heading">
 			<a class="panel-title collapsed" data-toggle="collapse"
 				data-parent="#panel-343417" href="#panel-element-817804">Download
-				Event Set</a>
+				Event Set Data</a>
 		</div>
 		<div id="panel-element-817804" class="panel-collapse collapse">
-			<div class="panel-body"><%@ include
-					file="downloadFileForm.jsp"%></div>
+			<div class="panel-body"><%@ include file="downloadFileForm.jsp"%></div>
 		</div>
 	</div>
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<a class="panel-title collapsed" data-toggle="collapse"
-				data-parent="#panel-343417" href="#panel-element-81781A">Get Current Exchange Rate</a>
+				data-parent="#panel-343417" href="#panel-element-81781A">Get
+				Current Exchange Rate</a>
 		</div>
 		<div id="panel-element-81781A" class="panel-collapse collapse">
-			<div class="panel-body"><%@ include
-					file="exchangeRateForm.jsp"%></div>
+			<div class="panel-body"><%@ include file="exchangeRateForm.jsp"%></div>
 		</div>
 	</div>
 </div>

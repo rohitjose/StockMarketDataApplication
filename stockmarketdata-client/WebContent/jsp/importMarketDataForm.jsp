@@ -6,7 +6,7 @@
 			<label for="SECCode" class="col-lg-2 control-label">Security
 				Code</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" id="SECCode"
+				<input type="text" class="form-control" id="SECCode" name="SECCode"
 					placeholder="Security Code">
 			</div>
 		</div>
@@ -15,13 +15,13 @@
 				Date</label>
 			<div class="col-lg-10">
 				<input type="text" class="form-control" id="StartDate"
-					placeholder="Start Date">
+					name="StartDate" placeholder="Start Date">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="EndDate" class="col-lg-2 control-label">End Date</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" id="EndDate"
+				<input type="text" class="form-control" id="EndDate" name="EndDate"
 					placeholder="End Date">
 			</div>
 		</div>
@@ -30,7 +30,15 @@
 				URL</label>
 			<div class="col-lg-10">
 				<input type="text" class="form-control" id="dataSourceURL"
-					placeholder="Data Source URL">
+					name="dataSourceURL" placeholder="Data Source URL">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="targetCurrencyCode" class="col-lg-2 control-label">Target
+				Currency Code</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" id="targetCurrencyCode"
+					name="targetCurrencyCode" placeholder="Target Currency Code (Leave as blank if price conversion is not required)">
 			</div>
 		</div>
 		<div class="form-group">

@@ -6,7 +6,7 @@
 			<label for="eventSetId" class="col-lg-2 control-label">Event
 				Set ID</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" id="eventSetId"
+				<input type="text" class="form-control" id="eventSetId" name="eventSetId"
 					placeholder="Event Set ID">
 			</div>
 		</div>
@@ -14,7 +14,7 @@
 			<label for="targetCurrencyCode" class="col-lg-2 control-label">Target
 				Currency Code</label>
 			<div class="col-lg-10">
-				<input type="text" class="form-control" id="targetCurrencyCode"
+				<input type="text" class="form-control" id="targetCurrencyCode" name="targetCurrencyCode"
 					placeholder="Target Currency Code">
 			</div>
 		</div>

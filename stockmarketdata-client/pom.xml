@@ -32,7 +32,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-	<!-- -
 		<plugins>
 			<plugin>
 				<groupId>org.apache.cxf</groupId>
@@ -56,7 +55,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		</plugins> -->
+		</plugins>
 		<!-- adding the plug-ins we have been using (e.g., codegen, tomcat, compiler) -->
 		<pluginManagement>
 			<plugins>
