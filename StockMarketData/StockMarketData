@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:ExchangeRateResponse xmlns:ns2="http://stockmarketdata.soacourse.unsw.edu.au">
+         <rate>0.7628</rate>
+         <asAt>31-03-2017</asAt>
+      </ns2:ExchangeRateResponse>
+   </soap:Body>
+</soap:Envelope>

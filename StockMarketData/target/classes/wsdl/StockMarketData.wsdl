@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://stockmarketdata.soacourse.unsw.edu.au" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StockMarketData"
+	targetNamespace="http://stockmarketdata.soacourse.unsw.edu.au">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://stockmarketdata.soacourse.unsw.edu.au">
+			<xsd:element name="importMarketDataRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="sec" nillable="false" type="xsd:string" />
+						<xsd:element name="startDate" nillable="false" type="xsd:string" />
+						<xsd:element name="endDate" nillable="false" type="xsd:string" />
+						<xsd:element name="dataSource" nillable="false" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="importMarketDataResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventSetId" nillable="false" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="downloadFileRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventSetId" nillable="false" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="downloadFileResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="returnData" nillable="false"
+							type="xsd:base64Binary" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ExchangeRateRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="baseCurrencyCode" nillable="false"
+							type="xsd:string" />
+						<xsd:element name="targetCurrencyCode" nillable="false"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ExchangeRateResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="rate" nillable="false" type="xsd:string" />
+						<xsd:element name="asAt" nillable="false" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="convertMarketDataRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventSetId" nillable="false" type="xsd:string" />
+						<xsd:element name="targetCurrency" nillable="false"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="convertMarketDataResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventSetId" nillable="false" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="serviceFaultType">
+				<xsd:sequence>
+					<xsd:element name="errorCode" type="xsd:string" />
+					<xsd:element name="errorDescription" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="importMarketDataFault" type="tns:serviceFaultType" />
+			<xsd:element name="downloadFileFault" type="tns:serviceFaultType" />
+			<xsd:element name="yahooExchangeRateFault" type="tns:serviceFaultType" />
+			<xsd:element name="convertMarketDataFault" type="tns:serviceFaultType" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="importMarketDataRequestMsg">
+		<wsdl:part element="tns:importMarketDataRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="importMarketDataResponseMsg">
+		<wsdl:part element="tns:importMarketDataResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadFileRequestMsg">
+		<wsdl:part element="tns:downloadFileRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadFileResponseMsg">
+		<wsdl:part element="tns:downloadFileResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ExchangeRateRequestMsg">
+		<wsdl:part element="tns:ExchangeRateRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ExchangeRateResponseMsg">
+		<wsdl:part element="tns:ExchangeRateResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="convertMarketDataRequestMsg">
+		<wsdl:part element="tns:convertMarketDataRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="convertMarketDataResponseMsg">
+		<wsdl:part element="tns:convertMarketDataResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="importMarketDataFaultMsg">
+		<wsdl:part element="tns:importMarketDataFault" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadFileFaultMsg">
+		<wsdl:part element="tns:downloadFileFault" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="yahooExchangeRateFaultMsg">
+		<wsdl:part element="tns:yahooExchangeRateFault" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="convertMarketDataFaultMsg">
+		<wsdl:part element="tns:convertMarketDataFault" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="StockMarketData">
+		<wsdl:operation name="importMarketData">
+			<wsdl:input message="tns:importMarketDataRequestMsg" />
+			<wsdl:output message="tns:importMarketDataResponseMsg" />
+			<wsdl:fault name="importMarketDataFault" message="tns:importMarketDataFaultMsg" />
+		</wsdl:operation>
+		<wsdl:operation name="downloadFile">
+			<wsdl:input message="tns:downloadFileRequestMsg" />
+			<wsdl:output message="tns:downloadFileResponseMsg" />
+			<wsdl:fault name="downloadFileFault" message="tns:downloadFileFaultMsg" />
+		</wsdl:operation>
+		<wsdl:operation name="yahooExchangeRate">
+			<wsdl:input message="tns:ExchangeRateRequestMsg" />
+			<wsdl:output message="tns:ExchangeRateResponseMsg" />
+			<wsdl:fault name="yahooExchangeRateFault" message="tns:yahooExchangeRateFaultMsg" />
+		</wsdl:operation>
+		<wsdl:operation name="convertMarketData">
+			<wsdl:input message="tns:convertMarketDataRequestMsg" />
+			<wsdl:output message="tns:convertMarketDataResponseMsg" />
+			<wsdl:fault name="convertMarketDataFault" message="tns:convertMarketDataFaultMsg" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="StockMarketDataSOAP" type="tns:StockMarketData">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="importMarketData">
+			<soap:operation
+				soapAction="http://stockmarketdata.soacourse.unsw.edu.au/importMarketData" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="importMarketDataFault">
+				<soap:fault name="importMarketDataFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="downloadFile">
+			<soap:operation
+				soapAction="http://stockmarketdata.soacourse.unsw.edu.au/downloadFile" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="downloadFileFault">
+				<soap:fault name="downloadFileFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="yahooExchangeRate">
+			<soap:operation
+				soapAction="http://stockmarketdata.soacourse.unsw.edu.au/yahooExchangeRate" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="yahooExchangeRateFault">
+				<soap:fault name="yahooExchangeRateFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="convertMarketData">
+			<soap:operation
+				soapAction="http://stockmarketdata.soacourse.unsw.edu.au/convertMarketData" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="convertMarketDataFault">
+				<soap:fault name="convertMarketDataFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="StockMarketData">
+		<wsdl:port binding="tns:StockMarketDataSOAP" name="StockMarketDataSOAP">
+			<soap:address location="http://localhost:8080/StockMarketData" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -333,9 +333,9 @@ public class StockMarketDataImpl implements StockMarketData {
 		// Return the exchange rate value
 		if (value != null && !value.isEmpty()) {
 			Float convertedCurrencyAmount = Float.parseFloat(value) * exchangeRate;
-			return targetCurrency + " " + Float.toString(convertedCurrencyAmount);
+			return targetCurrency + " " + String.format("%.2f", convertedCurrencyAmount);
 		}
-		return null;
+		return "";
 	}
 
 	@Override
@@ -374,6 +374,7 @@ public class StockMarketDataImpl implements StockMarketData {
 			FileReader fileReader = new FileReader(requestedFile);
 			BufferedReader buffer = new BufferedReader(fileReader);
 			String sCurrentLine;
+			buffer.readLine();// Skip the first line
 
 			// Variable to generate a randomized file name
 			UUID uuid = UUID.randomUUID();
